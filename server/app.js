@@ -12,7 +12,7 @@ const errorHandler = require('./middlewares/errorHandler')
 const MemberController = require('./controllers/memberController')
 const ReferralController = require('./controllers/referralController')
 const DepositHistoryController = require('./controllers/DepositHistory')
-const port = process.env.PORT || 3000
+const port = 80
 const app = express()
 
 app.use(express.urlencoded({ extended: true }))
