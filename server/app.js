@@ -1,7 +1,7 @@
-const express = require('express')
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
+const express = require('express')
 const cors = require('cors')
 const ProductController = require('./controllers/productController')
 const TransactionController = require('./controllers/transactionController')
@@ -12,7 +12,7 @@ const errorHandler = require('./middlewares/errorHandler')
 const MemberController = require('./controllers/memberController')
 const ReferralController = require('./controllers/referralController')
 const DepositHistoryController = require('./controllers/DepositHistory')
-const port = 80
+const port = process.env.PORT || 3000
 const app = express()
 
 app.use(express.urlencoded({ extended: true }))
