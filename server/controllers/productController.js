@@ -12,7 +12,9 @@ class ProductController {
   }
   static async getProducts(req, res, next) {
     try {
-      const newProduct = await Product.findAll()
+      const newProduct = await Product.findAll({
+        order: [['price', 'ASC']]
+      })
       res.status(200).json(newProduct)
     } catch (error) {
       console.log(error)

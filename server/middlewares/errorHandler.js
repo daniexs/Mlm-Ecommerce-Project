@@ -16,6 +16,9 @@ function errorHandler(err, eq, res, next) {
     } else if (err.name === "You are not authorized") {
         status = 403
         message = err.name
+    } else if (err.name === "not_found1") {
+        status = 404
+        message = "Refferal code not found"
     }
 
     res.status(status).json({ message })

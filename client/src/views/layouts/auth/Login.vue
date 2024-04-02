@@ -18,28 +18,15 @@
             </div>
             <div class="space-y-3">
               <h2 class="dark:text-white font-semibold text-gray-800 text-4xl">
-                Welcome, to Windzo<span class="text-primary">.</span>
+                Welcome, to Wepedia<span class="text-primary">.</span>
               </h2>
               <p class="dark:text-gray-400 text-gray-700">
                 Please enter your account to continue.
               </p>
             </div>
-            <button
-              type="button"
-              class="dark:text-white text-gray-700 flex justify-center gap-2 dark:bg-gray-700 bg-gray-100 hover:bg-gray-100/50 p-2 w-full rounded-md"
-            >
-              <img
-                class="w-8"
-                src="../../../assets/logo/google-logo.svg"
-                alt=""
-              />
-              <p class="mt-1 dark:text-white text-gray-700">
-                Sign in with Google
-              </p>
-            </button>
+            
             <span class="flex items-center justify-center space-x-2">
               <span class="h-px dark:bg-gray-600 bg-gray-200 w-full"></span>
-              <span class="font-normal text-gray-500">or </span>
               <span class="h-px dark:bg-gray-600 bg-gray-200 w-full"></span>
             </span>
             <div class="space-y-5">

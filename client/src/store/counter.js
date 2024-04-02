@@ -4,6 +4,7 @@ import axios from 'axios'
 export const useCounterStore = defineStore('counter', {
   state: () => ({
     baseURL: 'http://127.0.0.1:3000',
+    // baseURL: 'https://mlm-project.exdrans.xyz',
     dataProducts: [],
     dataProductsDetail: {},
     dataOrder: [],
@@ -125,8 +126,10 @@ export const useCounterStore = defineStore('counter', {
         })
         await this.getDataMemeberException()
         await this.getDataMember()
+        return 1
       } catch (error) {
         console.log(error)
+        return error
       }
     },
     async createMember(userId) {

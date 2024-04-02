@@ -4,7 +4,7 @@
       <div class="bg-white dark:bg-gray-900 w-full">
         <form v-on:submit.prevent="registerHadler">
           <div
-            class="form-body max-w-xl mx-auto lg:p-20 p-8 lg:mt-10 mt-5 space-y-8"
+            class="form-body max-w-xl mx-auto lg:p-20 p-8 lg:mt-10 mt-1 space-y-8"
           >
             <div
               class="form-head cursor-pointer"
@@ -111,19 +111,30 @@
                   <input
                     id="remember"
                     type="checkbox"
-                    value=""
                     autocomplete="off"
+                    v-model="checkRef"
+           
                     class="accent-primary focus:ring-4 cursor-pointer w-4 h-4 border border-gray-300 rounded dark:bg-gray-700 bg-gray-50 focus:ring-3 focus:ring-primary/30"
                   />
                 </div>
                 <label
                   for="remember"
                   class="ml-2 text-sm cursor-pointer font-normal dark:text-white text-gray-500"
-                  >I accept term of service
+                  >I have refferal code
                 </label>
               </div>
             </div>
-
+            <div class="relative z-0 w-full mb-6 group" v-if="checkRef === true">
+                <input
+                  type="text"
+                  name="floating_text"
+                  id="floating_text"
+                  class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-1 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-primary focus:outline-none focus:ring-0 focus:border-primary peer"
+                  placeholder="Referal code"
+                  required
+                  v-model="referralCode"
+                />
+              </div>
             <button
               class="text-white bg-primary hover:bg-primary/80 p-3 w-full rounded-md"
             >
@@ -132,7 +143,7 @@
             <p class="dark:text-white text-center text-gray-700">
               Already have an account?<button
                 type="button"
-                @click="$router.push('/auth/login')"
+                @click="$router.push('/login')"
                 class="ml-2 text-primary"
               >
                 Login here
@@ -155,20 +166,25 @@ import { mapActions } from 'pinia';
             email: '',
             phoneNumber: '',
             address: '',
-            password: ''
+            password: '',
+            referralCode: '',
+            checkRef: false
         }
     },
     methods: {
         ...mapActions(useCounterStore,['register']),
         async registerHadler(){
-            const data = { 
-              phoneNumber: this.phoneNumber,
-              address: this.address,
-              name: this.name,
-              email: this.email,
-              password: this.password
-            }
-            await this.register(data)
+          const data = { 
+            phoneNumber: this.phoneNumber,
+            address: this.address,
+            name: this.name,
+            email: this.email,
+            password: this.password
+          }
+          if(this.checkRef){
+            data.referralCode = this.referralCode
+          }
+          await this.register(data)
         }
     }
   };

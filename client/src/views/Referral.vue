@@ -9,9 +9,9 @@
           <h1 class="text-2xl text-gray-900 dark:text-gray-200 font-medium">
             Referral Progam
           </h1>
-          <p>For each friend you invite, we will  send you a cashback Rp. 20.000 that you can use to 
+          <p class="text-1xl text-gray-900 dark:text-gray-200 font-medium">For each friend you invite, we will  send you a cashback Rp. 20.000 that you can use to 
             purchase on any product on our site.</p>
-          <p style="margin-top: 2vh;">Your referral code :</p>
+          <p style="margin-top: 2vh;" class="text-1xl text-gray-900 dark:text-gray-200 font-medium">Your referral code :</p>
           <span style="margin-top: 3vh;max-width: 50vb;" class="bg-blue-100 flex gap-5 items-center justify-between py-3 px-5 rounded-full">
             <code class="text-blue-900 text-left whitespace-nowrap overflow-hidden overflow-ellipsis">
                 {{ dataUser.code }}

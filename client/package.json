@@ -24,6 +24,7 @@
     "click-outside-vue3": "^4.0.1",
     "core-js": "^3.8.3",
     "dropzone-vue": "^0.1.11",
+    "easyinvoice": "^3.0.47",
     "flowbite": "^1.4.1",
     "lodash": "^4.17.21",
     "perfect-scrollbar": "^1.5.5",
@@ -41,6 +42,7 @@
     "vue3-perfect-scrollbar": "^1.6.0"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-methods": "^7.18.6",
     "@iconify/vue": "^3.2.0",
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-router": "~5.0.0",

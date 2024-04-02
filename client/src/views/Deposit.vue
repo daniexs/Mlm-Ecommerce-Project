@@ -9,8 +9,10 @@
           <h1 class="text-2xl text-gray-900 dark:text-gray-200 font-medium">
             Deposit Progam
           </h1>
-          <p>For each friend you invite, we will  send you a cashback Rp. 20.000 that you can use to 
-            purchase on any product on our site.</p>
+          <p class="text-1xl text-gray-900 dark:text-gray-200 font-medium">
+            For each deposit, we will  send you a cashback 100% that you can use to 
+            purchase on any product on our site.
+          </p>
         </div>
       </div>
     </div>

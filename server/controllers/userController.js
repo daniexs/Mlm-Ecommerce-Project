@@ -7,21 +7,23 @@ class UserController {
     try {
       const { name, email, password, phoneNumber, address, referralCode } = req.body
       let check = false
-      let UserId
+      let refUser
       if (referralCode) {
         const user = await User.findOne({ where: { code: referralCode } })
         // console.log(user)
         if (user === null) {
-          throw { name: 'not_found' }
+          throw { name: 'not_found1' }
         } else {
           check = true
-          UserId = user.id
+          refUser = user
         }
       }
       const code = await getCode()
       const newUser = await User.create({ name, email, password, phoneNumber, address, code })
       if (check) {
-        await ReferralMember.create({ name: newUser.name, UserId, code: referralCode })
+        await ReferralMember.create({ name: newUser.name, UserId: refUser.id, code: referralCode })
+        const referral = Number(refUser.referral) + 20000
+        await User.update({ referral }, { where: { id: refUser.id } })
       }
       res.status(201).json({ id: newUser.id, email: newUser.email })
     } catch (error) {
@@ -69,7 +71,8 @@ class UserController {
       const { amount } = req.body
       const userOld = await User.findByPk(id)
       let balance = amount + userOld.balance
-      const user = await User.update({ balance }, { where: { id } })
+      let cashback = amount + userOld.deposit
+      const user = await User.update({ balance, deposit: cashback }, { where: { id } })
       const deposit = await DepositHistory.create({ amount, cashback: amount, UserId: id })
       res.status(200).json({ user: user[0], deposit })
     } catch (error) {

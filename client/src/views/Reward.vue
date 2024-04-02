@@ -9,7 +9,7 @@
           <h1 class="text-2xl text-gray-900 dark:text-gray-200 font-medium">
             Reward Progam
           </h1>
-          <p>For each recriut member, we will  send you a reward Rp. 10.000 that you can use to 
+          <p class="text-1xl text-gray-900 dark:text-gray-200 font-medium">For each recriut member, we will  send you a reward Rp. 10.000 that you can use to 
             purchase on any product on our site.</p>
         </div>
       </div>

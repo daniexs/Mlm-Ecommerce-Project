@@ -166,7 +166,7 @@
               </td>
               <td class="px-6 py-4">
                 <button
-                  v-on:click="delMember(items.id)"
+                  v-on:click="deleteMember(items.id)"
                   type="button"
                   class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
                 >
@@ -208,6 +208,37 @@
       resetAddMenber(){
         this.addMemberData = []
         console.log('reset bro')
+      },
+      deleteMember(id){
+        Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then(async (result) => { // Declare the callback function as async
+        if (result.isConfirmed) {
+          try {
+            const test = await this.delMember(id);
+            if(test != 1){
+              throw test
+            }
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your member has been deleted.",
+              icon: "success"
+            });
+          } catch (error) {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: error.response.data.message,
+            });
+          }
+        }
+      });
       }
     },
     computed: {
