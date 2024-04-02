@@ -55,6 +55,7 @@
                   placeholder=" "
                   required
                   v-model="password"
+                  minlength="6"
                 />
                 <label
                   for="floating_password"

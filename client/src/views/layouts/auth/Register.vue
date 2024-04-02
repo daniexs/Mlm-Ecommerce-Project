@@ -33,6 +33,7 @@
                   placeholder=" "
                   required
                   v-model="name"
+                  minlength="4"
                 />
                 <label
                   for="floating_text"
@@ -81,6 +82,7 @@
                   placeholder=" "
                   required
                   v-model="address"
+                  minlength="5"
                 />
                 <label
                   for="floating_text"
@@ -97,6 +99,7 @@
                   placeholder=" "
                   required
                   v-model="password"
+                  minlength="6"
                 />
                 <label
                   for="floating_password"

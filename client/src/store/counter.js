@@ -219,6 +219,7 @@ export const useCounterStore = defineStore('counter', {
           data: { amount }
         })
         await this.getDataDeposit()
+        await this.getDataProfile()
       } catch (error) {
         console.log(error)
       }

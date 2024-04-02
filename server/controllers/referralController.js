@@ -1,4 +1,4 @@
-const { ReferralMember, sequelize } = require('../models')
+const { ReferralMember, sequelize, User } = require('../models')
 class ReferralController {
   static async getDataReferral(req, res, next) {
     try {
@@ -15,22 +15,20 @@ class ReferralController {
     try {
       const data = await ReferralMember.findAll({
         attributes: [
-          'name',
-          [sequelize.fn('COUNT', sequelize.col('name')), 'count']
+          [sequelize.col('User.email'), 'name'], // Specify the table alias or name for the 'name' column
+          [sequelize.fn('COUNT', sequelize.col('ReferralMember.name')), 'count'] // Count occurrences of 'name' in ReferralMember table
         ],
-        group: ['name'],
+        include: [
+          {
+            model: User,
+            attributes: []
+          }
+        ],
+        group: [sequelize.col('User.email')], // Specify the table alias or name for the 'name' column
         order: [[sequelize.literal('count DESC')]],
         limit: 5
-      })
-      // let result = {};
-      // data.forEach(element => {
-      //   if (!result[element.name]) {
-      //     result[element.name] = { name: element.name, count: 1 };
-      //   } else {
-      //     result[element.name].count++;
-      //   }
-      // });
-      // const finalResult = Object.values(result);
+      });
+
       res.status(200).json(data)
     } catch (error) {
       console.log(error)
