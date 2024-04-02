@@ -16,8 +16,7 @@
 
     <!-- grid wrapper card -->
     <div
-      class="wrapper-card grid lg:grid-cols-4 grid-cols-1 md:grid-cols-2 gap-2 mt-5"
-      style="width: 200.5%;"
+      class="wrapper-card grid lg:grid-cols-2 grid-cols-1 md:grid-cols-2 gap-2 mt-5"
     >
       <!-- card  -->
       <div

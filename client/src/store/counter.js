@@ -3,8 +3,8 @@ import axios from 'axios'
 
 export const useCounterStore = defineStore('counter', {
   state: () => ({
-    baseURL: 'http://127.0.0.1:3000',
-    // baseURL: 'https://mlm-project.exdrans.xyz',
+    // baseURL: 'http://127.0.0.1:3000',
+    baseURL: 'https://mlm-project.exdrans.xyz',
     dataProducts: [],
     dataProductsDetail: {},
     dataOrder: [],
